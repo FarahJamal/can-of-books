@@ -18,7 +18,7 @@ class Header extends React.Component {
     return(
       <>
 
-      <Navbar className="ml-auto" collapseOnSelect  bg="dark" variant="dark">
+      <Navbar className="ml-auto" collapseOnSelect  bg="dark" variant="dark" style={{'margin-bottom':'100px'}}>
 
         <Navbar.Brand><img src={logo} style={{'width':'220px','height':'230px'}} alt="logo"/></Navbar.Brand>
         {/* TODO: if the user is logged in, render the `LogoutButton` - if the user is logged out, render the `LoginButton` */}

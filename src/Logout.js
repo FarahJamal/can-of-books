@@ -12,7 +12,7 @@ class Logout extends React.Component {
           return isAuthenticated && (
             <Button variant="outline-warning" onClick={() => {
               logout({ returnTo: window.location.origin });
-            }}>LOGOUT</Button>
+            }} style={{'margin-left':'450px'}}>LOGOUT</Button>
 
             
           );  

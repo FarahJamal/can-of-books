@@ -1,18 +1,16 @@
 import React from 'react';
-import { withAuth0 } from '@auth0/auth0-react';
-
-class IsLoadingAndError extends React.Component {
-  render() {
-    return(
-      this.props.auth0.isLoading ? 
-        <div> Loading...</div>
-        :
-        this.props.auth0.error ?
-          <div>Oops... {this.props.auth0.error.message}</div>
-          :
-          this.props.children
-    );
+import { useAuth0 } from '@auth0/auth0-react';
+function IsLoadingAndError({ children }) {
+  const {
+    isLoading,
+    error,
+  } = useAuth0();
+  if (isLoading) {
+    return <div>Loading...</div>;
   }
+  if (error) {
+    return <div>Oops... {error.message}</div>;
+  }
+  return <>{children}</>;
 }
-
-export default withAuth0(IsLoadingAndError);
+export default IsLoadingAndError;

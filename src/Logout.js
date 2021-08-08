@@ -1,6 +1,7 @@
 import React from 'react';
 import { withAuth0 } from '@auth0/auth0-react';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Button from 'react-bootstrap/Button';
 class Logout extends React.Component {
     render() {
         const {
@@ -9,9 +10,11 @@ class Logout extends React.Component {
           } = this.props.auth0;
         
           return isAuthenticated && (
-            <button onClick={() => {
+            <Button variant="outline-warning" onClick={() => {
               logout({ returnTo: window.location.origin });
-            }}>Log out</button>
+            }}>LOGOUT</Button>
+
+            
           );  
     }
    

@@ -6,6 +6,8 @@ import './Header.css';
 import Logout from './Logout';
 import Login from './Login';
 import { withAuth0 } from '@auth0/auth0-react';
+import logo from './logo.png'; // Tell Webpack this JS file uses this image
+
 
 
 class Header extends React.Component {
@@ -14,18 +16,34 @@ class Header extends React.Component {
       isAuthenticated,
     } = this.props.auth0;
     return(
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Navbar.Brand>My Favorite Books</Navbar.Brand>
-        <Link to="/">Home</Link>
-        <Link to="/profile">Profile</Link>
+      <>
+
+      <Navbar className="ml-auto" collapseOnSelect  bg="dark" variant="dark">
+
+        <Navbar.Brand><img src={logo} style={{'width':'220px','height':'230px'}} alt="logo"/></Navbar.Brand>
         {/* TODO: if the user is logged in, render the `LogoutButton` - if the user is logged out, render the `LoginButton` */}
-        <Login />
-        if ({isAuthenticated} {
-          <Logout />
-        })
+        <div style={{'margin-left': '360px','text-align': 'center','color':'white'}}>
+        <h1 >cover cove <br/><h6>you best mate ever!</h6></h1>
+
+        </div>
+        
+
+        {isAuthenticated ? <><Link to="/" >&nbsp;&nbsp;&nbsp; Home </Link> <Link to="/profile">&nbsp;&nbsp;&nbsp; Profile </Link> <Logout/> 
+</>
+: <Login/>
+}
+
+      
+          
+        
       </Navbar>
+
+
+      
+      </>
     );
-  }
+  
+}
 }
 
 export default withAuth0(Header);

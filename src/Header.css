@@ -5,3 +5,8 @@ a{
 a:hover{
   color:darkgrey;
 }
+
+.Navbar{
+  justify-content: space-between;
+  width: 20rem;
+}

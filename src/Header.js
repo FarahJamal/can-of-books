@@ -1,7 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from 'react-bootstrap/Navbar';
-import { Link } from "react-router-dom";
 import './Header.css';
 import Logout from './Logout';
 import Login from './Login';
@@ -18,17 +17,19 @@ class Header extends React.Component {
     return(
       <>
 
-      <Navbar className="ml-auto" collapseOnSelect  bg="dark" variant="dark" style={{'margin-bottom':'100px'}}>
+      <Navbar className="ml-auto" collapseOnSelect  bg="dark" variant="dark" style={{'margin-bottom':'100px',background: '#43C6AC', 
+                        background: '-webkit-linear-gradient(to top, #191654, #43C6AC)',
+                        background: 'linear-gradient(to top, #191654, #43C6AC)'}}>
 
         <Navbar.Brand><img src={logo} style={{'width':'220px','height':'230px'}} alt="logo"/></Navbar.Brand>
         {/* TODO: if the user is logged in, render the `LogoutButton` - if the user is logged out, render the `LoginButton` */}
         <div style={{'margin-left': '360px','text-align': 'center','color':'white'}}>
-        <h1 >cover cove <br/><h6>you best mate ever!</h6></h1>
+            <h1 >cover cove <br/><h6>you best mate ever!</h6></h1>
+</div>
 
-        </div>
         
 
-        {isAuthenticated ? <><Link to="/" >&nbsp;&nbsp;&nbsp; Home </Link> <Link to="/profile">&nbsp;&nbsp;&nbsp; Profile </Link> <Logout/> 
+        {isAuthenticated ? <><Logout/> 
 </>
 : <Login/>
 }

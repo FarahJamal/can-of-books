@@ -1,56 +1,70 @@
-.Background {
-    height: 100vh;
-    width: 100vw;
-    background-color: hsl(185, 75%, 39%);
+.card-container {
+	background-color: white;
+	min-width: 350px;
+	max-width: 600px;
+	height: auto;
+	border-radius: 14px;
+	box-shadow: 0px 10px 30px hsl(185, 75%, 35%);
+    margin:auto;
 }
 
-.ProfileCard {
-    width: 350px;
-    border-radius: 20px !important;
-    border: none !important;
+header {
+	background-position: 0px 0px;
+	background-repeat: no-repeat;
+	background-size: contain;
+	text-align: center;
+	border-top-left-radius: 14px;
+	border-top-right-radius: 14px;
 }
 
-.ProfileCardBody {
-    padding-top: 3.5rem !important;
-    padding-bottom: 2rem !important;
+.proImg {
+	margin: auto;
+	width: 100px;
+	border: solid white 4px;
+	border-radius: 50%;
+	margin-top: 75px;
 }
 
-.ProfileCardBackgroundImage {
-    width: 350px;
-    height: 140px;
-    border-top-left-radius: 15px  !important;
-    border-top-right-radius: 15px !important;
+.bold-text {
+	font-weight: bold;
+	font-size: 1.1rem;
+	text-align: center;
+	padding: 10px 20px 0px 20px;
 }
 
-.ProfileCardImage {
-    width: 20px !important;
-    height: 20px !important;
-    margin: auto;
-    position: absolute;
-    top: 84px;
-    left: 127px;
-    border: 5px white solid;
-    border-radius: 48px !important;
+.normal-text {
+	font-weight: normal;
+	font-size: 0.95rem;
+	color: hsl(0, 0%, 50%);
+	text-align: center;
+	padding-bottom: 10px;
 }
 
-.TextMuted {
-    font-weight: 400;
-    color: hsl(0, 0%, 59%);
+/* SOCIAL STATS */
+.smaller-text {
+	font-weight: normal;
+	font-size: 0.7rem;
+	color: hsl(0, 0%, 50%);
+	text-align: center;
+	letter-spacing: 1px;
+	padding-bottom: 20px;
+	line-height: 5px;
 }
 
-.TextBold {
-    font-size: 18px;
-    font-weight: 700;
-
+.social-container {
+	display: flex;
+	border-top: solid rgb(206, 206, 206) 1px;
+	text-align: center;
 }
 
-.CardFooter {
-    background-color: white !important;
-    border-bottom-left-radius: 15px  !important;
-    border-bottom-right-radius: 15px !important;
+.followers {
+	flex: 1;
 }
 
-.FooterP {
-    margin-bottom: 0;
-    margin-top: 0.5rem;
+.likes {
+	flex: 1;
+}
+
+.photos {
+	flex: 1;
 }

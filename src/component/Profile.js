@@ -3,7 +3,7 @@ import { withAuth0 } from '@auth0/auth0-react';
 import Image from 'react-bootstrap/Image'
 import Card from 'react-bootstrap/Card';
 import axios from "axios";
-import './profile.css'
+import '../css/profile.css'
 
 class Profile extends React.Component {
 

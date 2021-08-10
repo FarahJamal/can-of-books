@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Carousel from 'react-bootstrap/Carousel';
-import Card from 'react-bootstrap/Card';
+import {Card,Button} from 'react-bootstrap';
 
 
 class MyFavBooks extends React.Component{
@@ -22,34 +22,37 @@ background: linear-gradient(to top, #191654, #43C6AC);
                     }} >
             <Carousel fade  className="books" style={{ width: '70%', margin: 'auto' ,'carousel-indicators':'none'}}>
             {this.props.arr &&
-             this.props.arr
-            .map((book, idx)=>{
-                console.log(book.books[idx].imageUrl)
+
+             this.props.arr !== null? this.props.arr.map((book, idx)=>{
+                console.log(book)
                 return (
                          <Carousel.Item  key={idx}>
                          <Card.Header style={{ 'font-size': '26px' }}>
-                                        {book.books[idx].title}
+                                        {book.title}
                                     </Card.Header>
                                     <img
                                         className="d-block w-100"
-                                        src={book.books[idx].imageUrl}
-                                        alt={book.books[idx].title}
+                                        src={book.imageUrl}
+                                        alt={book.title}
                                         style={{ height: '500px' }}
                                     />
                                     <Card.Footer style={{'word-wrap': 'break-word'}}>
-                                    {book.books[idx].description}
+                                    {book.description}
 
 
                                     </Card.Footer>
                                     <Card.Text>
-                                        {book.books[idx].status}📖📖
+                                        {book.status}📖📖
                                     </Card.Text>
+                                    <Button variant='danger' onClick={this.props.deleteBook}>X</Button>
                        </Carousel.Item>
                 )
                 
             })
-            
-            } </Carousel>
+            :<h1>nothing to show here!</h1>
+            }
+           
+             </Carousel>
             </Card>
         
         );

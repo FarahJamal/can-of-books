@@ -1,11 +1,11 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from 'react-bootstrap/Navbar';
-import './Header.css';
+import '../css/Header.css';
 import Logout from './Logout';
 import Login from './Login';
 import { withAuth0 } from '@auth0/auth0-react';
-import logo from './logo.png'; // Tell Webpack this JS file uses this image
+import logo from '../images/logo.png'; // Tell Webpack this JS file uses this image
 
 
 

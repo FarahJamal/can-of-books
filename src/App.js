@@ -1,15 +1,15 @@
 import React from 'react';
-import Header from './Header';
-import IsLoadingAndError from './IsLoadingAndError';
-import Footer from './Footer';
+import Header from './component/Header';
+import IsLoadingAndError from './component/IsLoadingAndError';
+import Footer from './component/Footer';
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
-import Login from './Login.js';
-import BestBooks from './BestBooks.js';
-import Profile from './Profile.js';
+import Login from './component/Login';
+import BestBooks from './component/BestBooks';
+import Profile from './component/Profile.js';
 import { withAuth0 } from '@auth0/auth0-react';
 
 

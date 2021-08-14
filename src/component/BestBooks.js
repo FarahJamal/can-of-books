@@ -7,6 +7,7 @@ import axios from "axios";
 import MyFavBooks from './MyFavBooks';
 import AddBooksFormModal from './AddBooksFormModal';
 import Button from 'react-bootstrap/Button';
+import UpdateBookForm from './UpdateBookForm';
 
 
 class BestBooks extends React.Component {
@@ -15,6 +16,8 @@ class BestBooks extends React.Component {
     this.state={
       booksArr:[],
       showModal:false,
+      updateShow:false,
+      index:''
     }
   }
 
@@ -61,7 +64,7 @@ const bookData={
   title:bookTitle,
   description:description,
   imageUrl:imageUrl,
-  status:status
+  status:status,
 
 }
 console.log(bookData);
@@ -113,8 +116,61 @@ deleteBook=(index)=>{
   })
 }
 
+
+selectUpdateBook=(event)=>{
+
+  console.log("from update function");
+  this.setState({
+    showUpForm:true,
+    index: event.target.value,
+  })
+
+}
+
+closeUpForm=(event)=>{
+  this.setState({
+    showUpForm:false,
+  })
+}
+
+updateBook=async(event)=>{
+  const { user } = this.props.auth0;
+  const index= this.state.index
+  console.log(event.target)
+  const updatedData={
+    title: event.target.title.value || this.state.booksArr.title,
+    description: event.target.description.value || this.state.booksArr.description,
+    imageUrl: event.target.imageUrl.value || this.state.booksArr.imageUrl,
+    status:event.target.status.value || this.state.booksArr.status,
+    email:user.email
+  }; 
+  console.log('updated data are:.....')
+  console.log(updatedData); 
+  axios
+  .put(`http://localhost:4444/update/${index}`,updatedData)
+  .then((data)=>{
+    this.setState({ 
+      booksArr:data.data
+        })
+        console.log('hello inside update func',this.state.booksArr);
+  })
+  .catch((err)=>{
+    console.log(err);
+    alert(err);
+    <h1>error happened</h1>
+
+
+  })
+ 
+}
+
+
+
+  
+
+
 showModal = () => {
-  this.setState({ showModal: true });
+  this.setState({ showModal: true,updateShow:true });
 };
 hideModal =()=>{
   this.setState({ showModal:false, updateShow: false });
@@ -129,7 +185,6 @@ render() {
     return(
       <div style={{'text-align':'center'}}>
         <Button onClick={this.showModal}>add book</Button>
-
        <h1>My Favorite Books</h1>
                 <p>
           This is a collection of my favorite books
@@ -142,13 +197,18 @@ render() {
 
         <MyFavBooks 
 
-        arr={this.state.booksArr!==undefined ? this.state.booksArr.books : null}
-
+        arr={this.state.booksArr!==undefined ? this.state.booksArr : null}
        
 
           deleteBook={this.deleteBook}
+          updBook={this.selectUpdateBook}
+
         />
-          
+             
+
+<UpdateBookForm show={this.state.showUpForm} close={this.closeUpForm} update={this.updateBook}/>
+
+
         
         </div>
 

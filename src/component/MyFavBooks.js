@@ -21,14 +21,15 @@ background: linear-gradient(to top, #191654, #43C6AC);
                         background: 'linear-gradient(to top, #191654, #43C6AC)', boxShadow: '2px 2px 2px black', color: 'white',margin:'auto'
                     }} >
             <Carousel fade  className="books" style={{ width: '70%', margin: 'auto' ,'carousel-indicators':'none'}}>
-            {this.props.arr &&
+            { this.props.arr.books && console.log(this.props.arr.books[0].title)}
 
-             this.props.arr !== null? this.props.arr.map((book, idx)=>{
+{this.props.arr.books &&
+
+             this.props.arr.books !== null? this.props.arr.books.map((book, idx)=>{
                 console.log(book)
                 return (
                          <Carousel.Item  key={idx}>
                          <Card.Header style={{ 'font-size': '26px' }}>
-                                        {book.title}
                                     </Card.Header>
                                     <img
                                         className="d-block w-100"
@@ -45,12 +46,14 @@ background: linear-gradient(to top, #191654, #43C6AC);
                                         {book.status}📖📖
                                     </Card.Text>
                                     <Button variant='danger' onClick={this.props.deleteBook}>X</Button>
+                                    <Button variant="success" value={idx} onClick={this.props.updBook} className="in">Update Data</Button>
+
                        </Carousel.Item>
                 )
                 
             })
-            :<h1>nothing to show here!</h1>
-            }
+            :<h1>nothing to show here!</h1> }
+            
            
              </Carousel>
             </Card>
